@@ -7,7 +7,7 @@ export const useFavoriteUser = () => useContext(FavoriteUserContext);
 export const FavoriteUserProvider = ({ children }) => {
   const [favoriteUser, setFavoriteUser] = useState(null);
 
-  // Load favorite user from localStorage on app start
+  
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("favoriteUser"));
     if (storedUser) {
@@ -15,7 +15,6 @@ export const FavoriteUserProvider = ({ children }) => {
     }
   }, []);
 
-  // Save favorite user to localStorage whenever it changes
   useEffect(() => {
     if (favoriteUser) {
       localStorage.setItem("favoriteUser", JSON.stringify(favoriteUser));
